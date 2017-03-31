@@ -19,13 +19,12 @@ listName: 'trelo'
 service.getLists = function () {
 return lists;
 };
-
 service.addList = function (listName) {
- 	lists.push({
-	id: _.uniqueId('list_'),	
-	listName: ListName
- 	});
- };
+  lists.push({
+    id: _.uniqueId('list_'),
+    listName: listName
+  })
+};
 return service;
 });
 

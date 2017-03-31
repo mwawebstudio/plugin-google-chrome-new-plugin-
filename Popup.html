@@ -15,23 +15,22 @@
 		<h1 class="app-name">plugin</h1>
 	</div>
 </header>
-	<section id="lists-container" class="lists-container"
-	  ng-controller="listsCtrl as listsCtrl"> 
+	<section id="lists-container"
+         class="lists-container"
+         ng-controller="listsCtrl as listsCtrl">
+  <div class="row">
+    <section class="list list-inline"
+             ng-repeat="list in listsCtrl.lists">
+      <h1>{{list.listName}}</h1>
+    </section>
 
-		<div class="row">
-			<section class="list list-inline" 
-			ng-repeat="list in listsCtrl.lists">
-
-			<h1>{{list.listName}}</h1>
-				
-			</section>
-
-		<section class="list new-list list-inline">
-			<form ng-submit="listsCtrl.addlist()">
-			<input type="text" ng-model="listCtrl.listName"/>
-			</form>
-		</div>
-		</section>
+    <section class="list new-list list-inline">
+      <form ng-submit="listsCtrl.addList()">
+        <input type="text" ng-model="listsCtrl.listName"/>
+      </form>
+    </section>
+  </div>
+</section>
 
 
 	{{ 2 + 2}}
