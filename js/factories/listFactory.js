@@ -25,6 +25,10 @@ service.addList = function (listName) {
     listName: listName
   })
 };
+
+service.removeList = function (list) {
+  _.pull(lists, list);
+};
 return service;
 });
 
