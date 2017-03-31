@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/foundation.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/trello.css">
+</head>
+<body ng-cloack>
+
+<header>
+	
+	<div class="row">
+		<h1 class="app-name">plugin</h1>
+	</div>
+</header>
+	<section id="lists-container" class="lists-container"
+	  ng-controller="listsCtrl as listsCtrl"> 
+
+		<div class="row">
+			<section class="list list-inline" 
+			ng-repeat="list in listsCtrl.lists">
+
+			<h1>{{list.listName}}</h1>
+				
+			</section>
+
+		<section class="list new-list list-inline">
+			<form ng-submit="listsCtrl.addlist()">
+			<input type="text" ng-model="listCtrl.listName"/>
+			</form>
+		</div>
+		</section>
+
+
+	{{ 2 + 2}}
+	</section>
+
+<script src="js/lodash.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/factories/listFactory.js"></script>
+<script src="js/controllers/ListsCtrl.js"></script>
+
+
+
+
+	
+</body>
+</html>

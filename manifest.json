@@ -1,0 +1,29 @@
+{
+
+	"name" : "Name plugin Google Chrome",
+	"version" : "1.0",
+	"manifest_version" : 2,
+
+	"description" : "Тег description ",
+	"icons" : {
+
+		"128": "Calculator-128.png",
+		 "16": "Plugin-16.png"
+	},
+
+	"browser_action": {
+		"default_title" : "default_title",
+		"default_popup" : "popup.html"
+
+	},
+
+	"permissions" : [
+		"http://*/*",
+		"https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js",
+		"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"
+	]
+
+
+
+
+}
