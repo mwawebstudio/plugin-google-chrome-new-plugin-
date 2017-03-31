@@ -15,13 +15,17 @@
 		<h1 class="app-name">plugin</h1>
 	</div>
 </header>
-	<section id="lists-container"
+<section id="lists-container"
          class="lists-container"
          ng-controller="listsCtrl as listsCtrl">
   <div class="row">
     <section class="list list-inline"
              ng-repeat="list in listsCtrl.lists">
       <h1>{{list.listName}}</h1>
+
+      <a ng-click="listsCtrl" class="hand">
+        <div class="remove remove-list"></div>
+      </a>
     </section>
 
     <section class="list new-list list-inline">
@@ -31,10 +35,6 @@
     </section>
   </div>
 </section>
-
-
-	{{ 2 + 2}}
-	</section>
 
 <script src="js/lodash.js"></script>
 <script src="js/angular.js"></script>
