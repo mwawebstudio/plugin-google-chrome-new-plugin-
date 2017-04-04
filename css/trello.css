@@ -104,13 +104,13 @@ input{
 .edit{
     width: 15px;
     height: 15px;
-    background: url(/img/pen_alt_stroke.svg);
+    background: url(../img/pen_alt_stroke.svg);
 }
 
 .edit-small{
     width: 10px;
     height: 10px;
-    background: url(/img/pen_alt_stroke_sm.svg);
+    background: url(../img/pen_alt_stroke_sm.svg);
 }
 
 .edit-card{
@@ -121,11 +121,11 @@ input{
 }
 
 .edit:hover{
-    background: url(img/pen_alt_fill.svg);
+    background: url(../img/pen_alt_fill.svg);
 }
 
 .edit_sm:hover{
-    background: url(img/pen_alt_fill_sm.svg);
+    background: url(../img/pen_alt_fill_sm.svg);
 }
 
 .card:hover{

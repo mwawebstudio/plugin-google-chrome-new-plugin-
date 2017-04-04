@@ -7,47 +7,70 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/trello.css">
 </head>
-<body ng-cloack>
+<body ng-cloack	>
 
-<header>
-	
+	<header>
+		
+		<div class="row">
+			<h1 class="app-name">plugin</h1>
+		</div>
+	</header>
+	<section id="lists-container"
+	class="lists-container"
+	ng-controller="listsCtrl as listsCtrl">
 	<div class="row">
-		<h1 class="app-name">plugin</h1>
+		<section class="list list-inline"
+		ng-repeat="list in listsCtrl.lists"
+		ng-controller="listCtrl as listCtrl">
+		<h1>{{list.listName}}</h1>
+
+		<div class="card"
+		ng-controller="cardCtrl as cardCtrl"
+		ng-repeat="card in listCtrl.getCards(list)">
+		<div ng-if="!cardCtrl.isEditing">
+
+			{{card.description}}
+
+			<div ng-click="cardCtrl.editCard(card)"
+			class="edit-small edit-card hand">
+		</div>
+
+		<div ng-click="cardCtrl.deleteCard(card)"
+		class="remove-small remove-card hand">
 	</div>
-</header>
-<section id="lists-container"
-         class="lists-container"
-         ng-controller="listsCtrl as listsCtrl">
-  <div class="row">
-    <section class="list list-inline"
-             ng-repeat="list in listsCtrl.lists"
-             ng-controller="listCtrl as listCtrl">
-      <h1>{{list.listName}}</h1>
-   <div class="card" ng-repeat="card in listCtrl.getCards(list)">
-      {{card.description}}
-  </div>
- 	  <a ng-click="listCtrl.removeList(list)" 
- 	  class="hand">
-        <div class="remove remove-list"></div>
-      </a>
-      <section class="new-card">
-      	<form ng-submit="listCtrl.createCard(list)">
-			<input type="text"
-			ng-model="listCtrl.cardDescription"
-			class="card-input"
-			placeholder="New card">
-		</form>
-      </section>
 
-   
-    </section>
+</div>  
+<div ng-if="cardCtrl.isEditing">
+	<form ng-submit="cardCtrl.updateCard(card)">
+		<input type="text" ng-model="cardCtrl.editingCard.description">
+	</form>
+</div>
+</div>
 
-    <section class="list new-list list-inline">
-      <form ng-submit="listsCtrl.addList()">
-        <input type="text" ng-model="listsCtrl.listName"/>
-      </form>
-    </section>
-  </div>
+<a ng-click="listCtrl.removeList(list)" 
+class="hand">
+
+<div class="remove remove-list"></div>
+</a>
+
+<section class="new-card">
+	<form ng-submit="listCtrl.createCard(list)">
+		<input type="text"
+		ng-model="listCtrl.cardDescription"
+		class="card-input"
+		placeholder="New card">
+	</form>
+</section>
+
+
+</section>
+
+<section class="list new-list list-inline">
+	<form ng-submit="listsCtrl.addList()">
+		<input type="text" ng-model="listsCtrl.listName"/>
+	</form>
+</section>
+</div>
 </section>
 
 <script src="js/lodash.js"></script>
@@ -57,10 +80,8 @@
 <script src="js/factories/cardFactory.js"></script>
 <script src="js/controllers/ListsCtrl.js"></script>
 <script src="js/controllers/listCtrl.js"></script>
+<script src="js/controllers/cardCtrl.js"></script>
 
 
-
-
-	
 </body>
 </html>

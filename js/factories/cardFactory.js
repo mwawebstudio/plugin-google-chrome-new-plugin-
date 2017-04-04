@@ -3,29 +3,29 @@ angular.module('app').factory('cardFactory', function () {
 	var cards = [
 	{
 
-	  id: 1,
-	  description: 'Пароль от сайта vk.com',
-	  list_id: 1
+		id: 1,
+		description: 'Пароль от сайта vk.com',
+		list_id: 1
 	},
 
 	{
-	  id: 2,
-	  description: 'Description cardFactory_2',
-	  list_id: 2
+		id: 2,
+		description: 'Description cardFactory_2',
+		list_id: 2
 	},
 	{
 
-	  id: 3,
-	  description: 'Description cardFactory_2',
-	  list_id: 3
+		id: 3,
+		description: 'Description cardFactory_2',
+		list_id: 3
 	}
-];
+	];
 
 
 
 	service.getCards = function (list) {
-    return _.filter(cards, { list_id: list.id });
-};
+		return _.filter(cards, { list_id: list.id });
+	};
 
 	service.createCard = function (list, cardDescription) {
 		cards.push({
@@ -36,5 +36,14 @@ angular.module('app').factory('cardFactory', function () {
 		});
 
 	};
+
+	service.deleteCard = function (card) {
+		return _.pull(cards, card);
+	};
+	service.updateCard = function (updatingCard) {
+		var card = _.find(cards, { id: updatingCard.id })
+		card.description = updatingCard.description;
+	};
+
 	return service;
 });
