@@ -4,15 +4,11 @@ var service = {};
 var lists = [ 
 {
 id: 1,
-listName: 'Todo'
+listName: 'Основная карточка'
 },
 {
 id: 2,
-listName: 'Diung'
-},
-{
-id: 3,
-listName: 'trelo'
+listName: 'Важные'
 }
 ];
 

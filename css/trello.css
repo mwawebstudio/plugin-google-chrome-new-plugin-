@@ -41,6 +41,7 @@ input{
 .list h1{
   font-size: 16px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .list input{
@@ -155,6 +156,7 @@ input.search{
 .header-link:hover{
     color: #e3e3e3;
 }
+
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none;

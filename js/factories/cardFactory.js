@@ -4,21 +4,16 @@ angular.module('app').factory('cardFactory', function () {
 	{
 
 		id: 1,
-		description: 'Пароль от сайта vk.com',
+		description: 'Задачи на завтра',
 		list_id: 1
 	},
 
 	{
 		id: 2,
-		description: 'Description cardFactory_2',
+		description: 'Задачи на сегодня',
 		list_id: 2
-	},
-	{
-
-		id: 3,
-		description: 'Description cardFactory_2',
-		list_id: 3
 	}
+
 	];
 
 
