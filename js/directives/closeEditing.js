@@ -8,7 +8,7 @@ angular.module('app').directive('closeEditing', function () {
 			isEditing: '='
 		},
 		link: function (scope, element, attrs) {
-			console.Log('LINK');
+			
 			element.on('keyup', function (e) {
 				if (_.isEqual(e.keyCode, KEYS.DELETE)) {
 					scope.isEditing = false;
