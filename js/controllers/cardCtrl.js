@@ -1,21 +1,22 @@
 angular.module('app').controller('cardCtrl', function (cardFactory) {
+	var vm = this;
+	vm.isEditing = false;
+	vm.editingCard = null;
 	
-	this.isEditing = false;
-	this.editingCard = null;
-	
-	this.deleteCard = function (card) {
+	vm.deleteCard = function (card) {
 		cardFactory.deleteCard(card);
 	};
 	
-	this.editCard = function (card) {
-		this.isEditing = true;
-		this.editingCard = angular.copy(card);
+	vm.editCard = function (card) {
+		vm.isEditing = true;
+		vm.editingCard = angular.copy(card);
 	};
 	
-	this.updateCard = function (card) {
-		cardFactory.updateCard(this.editingCard);
-		this.editingCard = null;
-		this.isEditing = false;
+	vm.updateCard = function (card) {
+		cardFactory.updateCard(vm.editingCard);
+		vm.editingCard = null;
+		vm.isEditing = false;
 	};
+
 
 });
