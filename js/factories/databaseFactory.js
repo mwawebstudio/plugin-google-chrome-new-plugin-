@@ -9,6 +9,8 @@
          console.log(err);
      }
 
+// Подключение к базе данных
+
      function connectDB(f) {
          var request = indexedDB.open(baseName, 1);
          request.onerror = logerr;
@@ -54,7 +56,7 @@
      function delStorage(file) {
          connectDB(function (db) {
              var request = db.transaction([storeName], "readwrite").objectStore(storeName).delete(file);
-             request.onerror = logerr;
+             // request.onerror = logerr;
              request.onsuccess = function () {
                  console.log("File delete from DB:", file);
              }
