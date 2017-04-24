@@ -1,6 +1,6 @@
   angular.module('app').factory('listFactory', function (databaseFactory) {
     var service = {};
-    var databasename = 'data_base_list';
+    var databasename = 'my_store_lists';
     var lists = [
     ];
     service.getLists = function () {
@@ -25,7 +25,7 @@
       });
 
 
-      var cards = databaseFactory.getData("data_base_card");
+      var cards = databaseFactory.getData("my_store_card");
       
 
       var evens = _.remove(cards, function(c) {
@@ -35,7 +35,7 @@
       
       console.log(evens);
       databaseFactory.setData({
-        "path": "data_base_card"
+        "path": "my_store_card"
         , value: evens
 
       });

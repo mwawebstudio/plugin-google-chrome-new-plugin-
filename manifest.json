@@ -7,8 +7,8 @@
 	"description" : "Тег description ",
 	"icons" : {
 
-		"128": "app-128.png",
-		 "16": "app-16.png"
+		"128": "/img/app-128.png",
+		 "16": "/img/app-16.png"
 	},
 
 	"browser_action": {
@@ -20,13 +20,11 @@
 	"permissions" : [
 		"storage",
 		"unlimitedStorage",
+        "unlimited_storage",
 		"http://*/*",
 		"https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js",
 		"http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"
 	]
-
-
-
 
 }

@@ -1,8 +1,8 @@
  angular.module('app').factory('databaseFactory', ["$q", function ($q) {
      var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB
          , IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction
-         , baseName = "filesBase"
-         , storeName = "filesStore"
+         , baseName = "my_store1"
+         , storeName = "my_store1"
          , data = [];
 
      function logerr(err) {
@@ -18,8 +18,8 @@
              f(request.result);
          }
          request.onupgradeneeded = function (e) {
-             e.currentTarget.result.createObjectStore('my_store', {
-                 keyPath: 'key'
+             e.currentTarget.result.createObjectStore(storeName, {
+                 keyPath: 'path'
                  , autoIncrement: true
              });
              connectDB(f);
@@ -36,7 +36,12 @@
              objectStoreRequest.onsuccess = function () {
                  // Grab the data object returned as the result
                  data = objectStoreRequest.result;
-                 deferred.resolve(data.value);
+                 console.log(data);
+                 if (data!=undefined)
+                    deferred.resolve(data.value);
+                else
+                    deferred.resolve([]);
+
                  console.log("we are here");
              }
          });
@@ -53,10 +58,10 @@
          });
      }
 
-     function delStorage(file) {
+     function delStorage(data) {
          connectDB(function (db) {
-             var request = db.transaction([storeName], "readwrite").objectStore(storeName).delete(file);
-             // request.onerror = logerr;
+             var request = db.transaction([storeName], "readwrite").objectStore(storeName).delete(data);
+             request.onerror = logerr;
              request.onsuccess = function () {
                  console.log("File delete from DB:", file);
              }
